@@ -6,7 +6,7 @@
 
     <!-- Build paginator -->
     {{ $pages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections }}
-    {{ $filtered := where $pages "Params.hidden" "!=" true }}
+    {{ $filtered := (where $pages "Params.hidden" "!=" true).ByLastmod.Reverse }}
     {{ $pag := .Paginate ($filtered) }}
 
     {{ if .Paginator.HasPrev }}
