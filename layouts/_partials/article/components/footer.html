@@ -12,7 +12,7 @@
     <section class="article-lastmod inline-meta">
         {{ partial "helper/icon" "clock" }}
         <span>
-            {{ T "article.lastUpdatedOn" }} {{ .Lastmod | time.Format .Site.Params.dateFormat.lastUpdated }}
+            {{ T "article.lastUpdatedOn" }} {{ .Lastmod.UTC | time.Format .Site.Params.dateFormat.lastUpdated }}
         </span>
     </section>
     {{- end -}}
